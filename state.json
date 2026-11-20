@@ -1,17 +1,16 @@
 {
-  "next": 1,
-  "pending": {
-    "index": 1,
-    "image": "videos/2026-11-20_1646.mp4",
-    "kind": "reel",
-    "caption": "send this to your bestie 💌\n.\n.\n#feelings #funnytweets #genz #relatablequotes #selfcare #reminder #tweets #relatabletweets #mood #overthinking",
-    "text": "i don't need a vacation i need a whole new personality that doesn't overthink everything"
-  },
+  "next": 2,
+  "pending": null,
   "history": [
     {
       "index": 0,
       "buffer_id": "6b006a1e16b7fc947dff730e",
       "date": "2026-11-20T15:41+00:00"
+    },
+    {
+      "index": 1,
+      "buffer_id": "6b0079766eabfb806ccf2582",
+      "date": "2026-11-20T16:46+00:00"
     }
   ]
 }
