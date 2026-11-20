@@ -123,6 +123,7 @@ def publish_buffer(p, image_url):
         "text": p["caption"], "channelId": channel["id"], "schedulingType": "automatic",
         "mode": "customScheduled", "dueAt": due,
         "assets": [{"image": {"url": image_url, "metadata": {"altText": p["text"]}}}],
+        "metadata": {"instagram": {"type": "post", "shouldShareToFeed": True}},
     }})["createPost"]
     if "post" not in res:
         fail("Buffer ni sprejel objave:", res.get("message"))
