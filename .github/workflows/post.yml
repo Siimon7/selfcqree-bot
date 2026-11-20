@@ -1,0 +1,48 @@
+name: Dnevna objava
+
+on:
+  schedule:
+    # vsak dan ob 23:07 UTC (= 18:07 v ZDA vzhodno, 0:07 pri nas)
+    - cron: "7 23 * * *"
+  workflow_dispatch: {}   # gumb "Run workflow" za ročni zagon
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow requests
+
+      - name: Pripravi sliko
+        run: python scripts/post.py prepare
+
+      - name: Naloži sliko na GitHub
+        run: |
+          git config user.name "selfcqree-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add images state.json
+          git commit -m "pripravljena objava"
+          git push
+          sleep 20
+
+      - name: Objavi na Instagram
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python scripts/post.py publish
+
+      - name: Shrani stanje
+        if: always()
+        run: |
+          git add state.json
+          git commit -m "objavljeno" || true
+          git push
