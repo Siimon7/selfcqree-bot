@@ -2,7 +2,8 @@ name: Dnevna objava
 
 on:
   schedule:
-    # vsak dan ob 23:07 UTC (= 18:07 v ZDA vzhodno, 0:07 pri nas)
+    # 2x na dan: 14:07 UTC (15:07 pri nas, 9:07 ZDA vzhod) in 23:07 UTC (0:07 pri nas, 18:07 ZDA vzhod)
+    - cron: "7 14 * * *"
     - cron: "7 23 * * *"
   workflow_dispatch: {}   # gumb "Run workflow" za ročni zagon
 
