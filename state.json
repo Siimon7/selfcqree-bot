@@ -1,10 +1,11 @@
 {
-  "next": 0,
-  "pending": {
-    "index": 0,
-    "image": "images/2026-11-20_1540.jpg",
-    "caption": "comment 🙋 if this is you\n.\n.\n#genz #quotes #relatable #selfcare #relatabletweets #tweets #funnytweets #reminder #mood #relatablememes",
-    "text": "does anyone else replay conversations in their head for 3 days after they happen"
-  },
-  "history": []
+  "next": 1,
+  "pending": null,
+  "history": [
+    {
+      "index": 0,
+      "buffer_id": "6b006a1e16b7fc947dff730e",
+      "date": "2026-11-20T15:41+00:00"
+    }
+  ]
 }
