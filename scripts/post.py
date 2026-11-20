@@ -32,6 +32,14 @@ HASHTAGS = [
 ]
 
 
+def fail(*msg):
+    text = " ".join(str(m) for m in msg)
+    print(text)
+    with open(os.path.join(ROOT, "last_error.txt"), "w") as f:
+        f.write(datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes") + "  " + text + "\n")
+    sys.exit(1)
+
+
 def load_state():
     if os.path.exists(STATE):
         with open(STATE) as f:
@@ -68,8 +76,7 @@ def prepare():
 
 def _check(r):
     if r.status_code != 200:
-        print("Napaka Instagram API:", r.status_code, r.text)
-        sys.exit(1)
+        fail("Napaka Instagram API:", r.status_code, r.text)
     return r.json()
 
 
@@ -79,10 +86,12 @@ BUFFER_API = "https://api.buffer.com"
 def _buffer(query, variables=None):
     r = requests.post(BUFFER_API, json={"query": query, "variables": variables or {}},
                       headers={"Authorization": "Bearer " + os.environ["BUFFER_TOKEN"]}, timeout=60)
-    j = r.json()
+    try:
+        j = r.json()
+    except Exception:
+        fail("Buffer ni vrnil JSON:", r.status_code, r.text[:500])
     if r.status_code != 200 or j.get("errors"):
-        print("Napaka Buffer API:", r.status_code, j)
-        sys.exit(1)
+        fail("Napaka Buffer API:", r.status_code, j)
     return j["data"]
 
 
@@ -101,8 +110,7 @@ def publish_buffer(p, image_url):
         if channel:
             break
     if not channel:
-        print("V Bufferju ni povezanega Instagram računa.")
-        sys.exit(1)
+        fail("V Bufferju ni povezanega Instagram računa. Kanali:", orgs)
 
     due = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=5)).isoformat(timespec="seconds").replace("+00:00", "Z")
     res = _buffer("""
@@ -117,8 +125,7 @@ def publish_buffer(p, image_url):
         "assets": [{"image": {"url": image_url, "metadata": {"altText": p["text"]}}}],
     }})["createPost"]
     if "post" not in res:
-        print("Buffer ni sprejel objave:", res.get("message"))
-        sys.exit(1)
+        fail("Buffer ni sprejel objave:", res.get("message"))
     print("Poslano v Buffer za @%s, objava ob %s" % (channel["name"], res["post"]["dueAt"]))
     return res["post"]["id"]
 

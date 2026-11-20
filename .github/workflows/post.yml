@@ -45,5 +45,6 @@ jobs:
         if: always()
         run: |
           git add state.json
-          git commit -m "objavljeno" || true
+          [ -f last_error.txt ] && git add last_error.txt
+          git commit -m "stanje po objavi" || true
           git push
