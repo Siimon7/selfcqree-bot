@@ -38,6 +38,7 @@ jobs:
       - name: Objavi na Instagram
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          BUFFER_TOKEN: ${{ secrets.BUFFER_TOKEN }}
         run: python scripts/post.py publish
 
       - name: Shrani stanje

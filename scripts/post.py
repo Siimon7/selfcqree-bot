@@ -73,8 +73,57 @@ def _check(r):
     return r.json()
 
 
+BUFFER_API = "https://api.buffer.com"
+
+
+def _buffer(query, variables=None):
+    r = requests.post(BUFFER_API, json={"query": query, "variables": variables or {}},
+                      headers={"Authorization": "Bearer " + os.environ["BUFFER_TOKEN"]}, timeout=60)
+    j = r.json()
+    if r.status_code != 200 or j.get("errors"):
+        print("Napaka Buffer API:", r.status_code, j)
+        sys.exit(1)
+    return j["data"]
+
+
+def publish_buffer(p, image_url):
+    """Objava prek Bufferja (Buffer ima svojo odobreno Meta aplikacijo)."""
+    orgs = _buffer("query { account { organizations { id name } } }")["account"]["organizations"]
+    channel = None
+    for o in orgs:
+        chans = _buffer('query { channels(input: {organizationId: %s}) { id name service } }'
+                        % json.dumps(o["id"]))["channels"]
+        for c in chans:
+            if c["service"].lower() == "instagram" and "selfcqree" in (c["name"] or "").lower():
+                channel = c
+        if not channel:
+            channel = next((c for c in chans if c["service"].lower() == "instagram"), None)
+        if channel:
+            break
+    if not channel:
+        print("V Bufferju ni povezanega Instagram računa.")
+        sys.exit(1)
+
+    due = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=5)).isoformat(timespec="seconds").replace("+00:00", "Z")
+    res = _buffer("""
+      mutation($input: CreatePostInput!) {
+        createPost(input: $input) {
+          ... on PostActionSuccess { post { id dueAt } }
+          ... on MutationError { message }
+        }
+      }""", {"input": {
+        "text": p["caption"], "channelId": channel["id"], "schedulingType": "automatic",
+        "mode": "customScheduled", "dueAt": due,
+        "assets": [{"image": {"url": image_url, "metadata": {"altText": p["text"]}}}],
+    }})["createPost"]
+    if "post" not in res:
+        print("Buffer ni sprejel objave:", res.get("message"))
+        sys.exit(1)
+    print("Poslano v Buffer za @%s, objava ob %s" % (channel["name"], res["post"]["dueAt"]))
+    return res["post"]["id"]
+
+
 def publish():
-    token = os.environ["IG_TOKEN"]
     repo = os.environ["GITHUB_REPOSITORY"]
     branch = os.environ.get("GITHUB_REF_NAME", "main")
     s = load_state()
@@ -83,6 +132,17 @@ def publish():
         print("Ni pripravljene objave.")
         return
     image_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{p['image']}"
+
+    if os.environ.get("BUFFER_TOKEN"):
+        mid = publish_buffer(p, image_url)
+        s["history"].append({"index": p["index"], "buffer_id": mid,
+                             "date": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes")})
+        s["next"] = p["index"] + 1
+        s["pending"] = None
+        save_state(s)
+        return
+
+    token = os.environ["IG_TOKEN"]
 
     me = _check(requests.get(f"{API}/me", params={"fields": "user_id,username", "access_token": token}))
     uid = me["user_id"]
