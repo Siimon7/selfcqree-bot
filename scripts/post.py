@@ -10,6 +10,8 @@ import requests
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from render import render
+from reel import render_reel
+import glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATE = os.path.join(ROOT, "state.json")
@@ -57,7 +59,20 @@ def load_posts():
         return [l.strip() for l in f if l.strip()]
 
 
-def prepare():
+def cleanup(days=5):
+    """Pobriše stare slike/videe (objavljene so že), da repozitorij ne raste."""
+    cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=days)
+    for f in glob.glob(os.path.join(ROOT, "images", "*.jpg")) + glob.glob(os.path.join(ROOT, "videos", "*.mp4")):
+        try:
+            stamp = datetime.datetime.strptime(os.path.basename(f)[:15], "%Y-%m-%d_%H%M").replace(tzinfo=datetime.timezone.utc)
+        except ValueError:
+            continue
+        if stamp < cutoff:
+            os.remove(f)
+
+
+def prepare(kind="post"):
+    cleanup()
     s = load_state()
     posts = load_posts()
     if s["next"] >= len(posts):
@@ -65,11 +80,16 @@ def prepare():
         sys.exit(1)
     text = posts[s["next"]]
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d_%H%M")
-    rel = f"images/{stamp}.jpg"
-    render(text, os.path.join(ROOT, rel), seed=s["next"])
+    if kind == "reel":
+        os.makedirs(os.path.join(ROOT, "videos"), exist_ok=True)
+        rel = f"videos/{stamp}.mp4"
+        render_reel(text, os.path.join(ROOT, rel), seed=s["next"])
+    else:
+        rel = f"images/{stamp}.jpg"
+        render(text, os.path.join(ROOT, rel), seed=s["next"])
     rnd = random.Random(s["next"])
     caption = rnd.choice(CAPTIONS) + "\n.\n.\n" + " ".join(rnd.sample(HASHTAGS, 10))
-    s["pending"] = {"index": s["next"], "image": rel, "caption": caption, "text": text}
+    s["pending"] = {"index": s["next"], "image": rel, "kind": kind, "caption": caption, "text": text}
     save_state(s)
     print("Pripravljeno:", text)
 
@@ -122,8 +142,10 @@ def publish_buffer(p, image_url):
       }""", {"input": {
         "text": p["caption"], "channelId": channel["id"], "schedulingType": "automatic",
         "mode": "customScheduled", "dueAt": due,
-        "assets": [{"image": {"url": image_url, "metadata": {"altText": p["text"]}}}],
-        "metadata": {"instagram": {"type": "post", "shouldShareToFeed": True}},
+        "assets": ([{"video": {"url": image_url}}] if p.get("kind") == "reel"
+                   else [{"image": {"url": image_url, "metadata": {"altText": p["text"]}}}]),
+        "metadata": {"instagram": {"type": "reel" if p.get("kind") == "reel" else "post",
+                                   "shouldShareToFeed": True}},
     }})["createPost"]
     if "post" not in res:
         fail("Buffer ni sprejel objave:", res.get("message"))
@@ -190,4 +212,7 @@ def refresh():
 
 
 if __name__ == "__main__":
-    {"prepare": prepare, "publish": publish, "refresh": refresh}[sys.argv[1]]()
+    if sys.argv[1] == "prepare":
+        prepare(sys.argv[2] if len(sys.argv) > 2 else "post")
+    else:
+        {"publish": publish, "refresh": refresh}[sys.argv[1]]()
