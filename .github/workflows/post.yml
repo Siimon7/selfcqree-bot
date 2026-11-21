@@ -8,7 +8,7 @@ on:
   workflow_dispatch:      # gumb "Run workflow" za ročni zagon
     inputs:
       kind:
-        description: "post ali reel"
+        description: "post, reel ali carousel"
         default: "post"
 
 permissions:
@@ -32,6 +32,7 @@ jobs:
       - name: Pripravi objavo (popoldne slika, zvečer Reel)
         env:
           KIND: ${{ github.event.schedule == '7 23 * * *' && 'reel' || inputs.kind || 'post' }}
+          SHOP_URL: ${{ vars.SHOP_URL }}
         run: python scripts/post.py prepare "$KIND"
 
       - name: Naloži sliko na GitHub
@@ -47,6 +48,8 @@ jobs:
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           BUFFER_TOKEN: ${{ secrets.BUFFER_TOKEN }}
+          SHOP_URL: ${{ vars.SHOP_URL }}
+          PINTEREST_BOARD: ${{ vars.PINTEREST_BOARD }}
         run: python scripts/post.py publish
 
       - name: Shrani stanje

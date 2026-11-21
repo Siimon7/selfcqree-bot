@@ -46,9 +46,9 @@ def render_reel(text, out_path, seed=0):
     cx, cy = (W - card_w) // 2, (H - card_h) // 2
 
     total_chars = sum(len(l) for l in lines)
-    t_card, t_type_start = 0.6, 0.8
-    type_dur = min(4.0, max(1.8, total_chars / 28))
-    duration = t_type_start + type_dur + 3.5
+    # tekst mora biti viden takoj (ljudje odidejo po 2-3 s), video je kratka zanka
+    t_card, t_type_start, type_dur = 0.25, 0.0, 0.2
+    duration = 6.0
     frames = int(duration * FPS)
 
     # pripravljena kartica brez teksta
@@ -99,12 +99,16 @@ def render_reel(text, out_path, seed=0):
                 d.text((cx + 60, y), part, font=body, fill=(20, 20, 20))
             left -= len(line)
             y += line_h
-        if t > t_type_start + type_dur + 0.6:
-            fp = _ease((t - t_type_start - type_dur - 0.6) / 0.6)
+        if t > 2.2:
+            fp = _ease((t - 2.2) / 0.6)
             ft = _font("Regular", 40)
             label = "follow @selfcqree"
             d.text(((W - d.textlength(label, font=ft)) // 2, cy + card_h + 70), label,
                    font=ft, fill=tuple(int(c + (110 - c) * fp) for c in bg))
+        z = 1 + 0.035 * (t / duration)  # počasen zoom za občutek gibanja
+        if z > 1.001:
+            zw, zh = int(W * z), int(H * z)
+            frame = frame.resize((zw, zh), Image.BILINEAR).crop(((zw - W) // 2, (zh - H) // 2, (zw - W) // 2 + W, (zh - H) // 2 + H))
         ff.stdin.write(frame.convert("RGB").tobytes())
 
     ff.stdin.close()
