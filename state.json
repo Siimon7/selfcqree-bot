@@ -1,22 +1,6 @@
 {
   "next": 5,
-  "pending": {
-    "index": null,
-    "carousel": 1,
-    "image": "images/2026-11-22_2042_c_0.jpg",
-    "images": [
-      "images/2026-11-22_2042_c_0.jpg",
-      "images/2026-11-22_2042_c_1.jpg",
-      "images/2026-11-22_2042_c_2.jpg",
-      "images/2026-11-22_2042_c_3.jpg",
-      "images/2026-11-22_2042_c_4.jpg",
-      "images/2026-11-22_2042_c_5.jpg",
-      "images/2026-11-22_2042_c_9.jpg"
-    ],
-    "kind": "carousel",
-    "caption": "read that again. you're allowed to put some of it down ♡\n.\n.\n#genz #relatable #lifequotes #mood #relatablequotes #relatabletweets #quotes #relatablememes #reminder #overthinking",
-    "text": "things that are not your job"
-  },
+  "pending": null,
   "history": [
     {
       "index": 0,
@@ -50,6 +34,12 @@
       "kind": "reel",
       "buffer_id": "6b025a07d864a01105910391",
       "date": "2026-11-22T02:57+00:00"
+    },
+    {
+      "index": null,
+      "kind": "carousel",
+      "buffer_id": "6b0353c2846b0ee907b7ba69",
+      "date": "2026-11-22T20:42+00:00"
     }
   ],
   "carousel_next": 2
