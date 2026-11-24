@@ -20,14 +20,18 @@ STATE = os.path.join(ROOT, "state.json")
 API = "https://graph.instagram.com/v23.0"
 
 CAPTIONS = [
-    "tag someone who needs to see this ◡̈",
-    "be honest… is it just me? 🫠",
-    "send this to your bestie 💌",
-    "relatable or nah? ⬇️",
-    "this is so me it hurts",
-    "save this for later ♡",
-    "comment 🙋 if this is you",
-    "follow @selfcqree for more ◡̈",
+    "be honest… is this you? comment 🙋 or 🙅",
+    "rate how relatable this is from 1 to 10 👇",
+    "tag the friend who does this 😭",
+    "who else? drop a 🫠 in the comments",
+    "is it just me or…? tell me in the comments",
+    "reply with an emoji that describes your week 👇",
+    "yes or no? i need to know 👀",
+    "what's your version of this? comment below ⬇️",
+    "send this to someone who needs it, then tell me who 💌",
+    "agree or disagree? comment 👍 or 👎",
+    "be real, how many times this week? 👇",
+    "comment \"me\" if you felt this ♡",
 ]
 HASHTAGS = [
     "#relatable", "#relatablequotes", "#relatablememes", "#mood", "#selfcare",
