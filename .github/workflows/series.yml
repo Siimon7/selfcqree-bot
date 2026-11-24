@@ -1,0 +1,41 @@
+name: Zgodbe (Red Lantern Tales)
+
+on:
+  schedule:
+    # 1x na dan ob 18:07 UTC (19:07 pri nas pozimi)
+    - cron: "7 18 * * *"
+  workflow_dispatch:      # gumb "Run workflow" za ročni zagon
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post            # isti kot dnevna objava, da se ne prehitevata
+  cancel-in-progress: false
+
+jobs:
+  series:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow requests
+
+      - name: Objavi naslednjo epizodo
+        env:
+          BUFFER_TOKEN: ${{ secrets.BUFFER_TOKEN }}
+          SERIES_IG: ${{ vars.SERIES_IG }}
+        run: python scripts/series.py publish
+
+      - name: Shrani stanje
+        if: always()
+        run: |
+          git config user.name "selfcqree-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add series/state.json
+          [ -f last_error.txt ] && git add last_error.txt
+          git commit -m "zgodbe: stanje po objavi" || true
+          git pull --rebase || true
+          git push
