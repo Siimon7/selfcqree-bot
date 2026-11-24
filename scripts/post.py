@@ -212,7 +212,7 @@ def publish_buffer(p, urls):
         assets = [{"image": {"url": u, "metadata": {"altText": p["text"][:200]}}} for u in urls]
     base = {"text": p["caption"], "schedulingType": "automatic", "mode": "customScheduled", "dueAt": due, "assets": assets}
 
-    ig_meta = {"type": "story"} if kind == "story" else {"type": "reel" if kind == "reel" else "post", "shouldShareToFeed": True}
+    ig_meta = {"type": "story", "shouldShareToFeed": False} if kind == "story" else {"type": "reel" if kind == "reel" else "post", "shouldShareToFeed": True}
     res = _buffer(CREATE, {"input": dict(base, channelId=ig["id"], metadata={"instagram": ig_meta})})["createPost"]
     if "post" not in res:
         fail("Buffer ni sprejel objave:", res.get("message"))
