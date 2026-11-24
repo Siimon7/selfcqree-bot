@@ -1,5 +1,5 @@
 """
-Zgodbe (Red Lantern Tales): vsak dan objavi naslednjo epizodo iz series/queue.json
+Zgodbe (Red Ink Episodes): vsak dan objavi naslednjo epizodo iz series/queue.json
 na nov Instagram profil (Reel) in YouTube (Short) prek Bufferja.
 
   python scripts/series.py publish   -> objavi naslednjo epizodo
@@ -74,7 +74,7 @@ def publish():
     if yt:
         desc = f"{ep['hook']}\n\n{ep['question']}\nNew episode every day.\n\n{HASHTAGS}"
         data, err = _buffer_soft(CREATE, {"input": dict(base, channelId=yt["id"], text=desc,
-                                                        metadata={"youtube": {"title": (ep["title"] + " #shorts")[:100], "categoryId": "1",
+                                                        metadata={"youtube": {"title": ep["title"][:100], "categoryId": "1",
                                                                               "madeForKids": False}})})
         r = (data or {}).get("createPost") or {}
         if err or "post" not in r:
