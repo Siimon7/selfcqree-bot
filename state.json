@@ -1,13 +1,6 @@
 {
   "next": 8,
-  "pending": {
-    "index": null,
-    "story": 0,
-    "image": "images/2026-11-24_1755_story.jpg",
-    "kind": "story",
-    "caption": "how's your heart today, honestly?",
-    "text": "how's your heart today, honestly?"
-  },
+  "pending": null,
   "history": [
     {
       "index": 0,
@@ -65,6 +58,12 @@
       "kind": "reel",
       "buffer_id": "6b053482ca4899309e65902f",
       "date": "2026-11-24T06:53+00:00"
+    },
+    {
+      "index": null,
+      "kind": "story",
+      "buffer_id": "6b05cfa9a1fe31a32b3070db",
+      "date": "2026-11-24T17:55+00:00"
     }
   ],
   "carousel_next": 2,
