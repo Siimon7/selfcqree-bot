@@ -34,7 +34,7 @@ jobs:
       - name: Pripravi objavo (popoldne slika, zvečer Reel)
         env:
           KIND: ${{ github.event.schedule == '7 23 * * *' && 'reel' || github.event.schedule == '37 18 * * *' && 'story' || inputs.kind || 'post' }}
-          SHOP_URL: ${{ vars.SHOP_URL }}
+          SHOP_URL: ${{ vars.SHOP_URL || 'https://payhip.com/selfcqree' }}
         run: python scripts/post.py prepare "$KIND"
 
       - name: Naloži sliko na GitHub
@@ -50,7 +50,7 @@ jobs:
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           BUFFER_TOKEN: ${{ secrets.BUFFER_TOKEN }}
-          SHOP_URL: ${{ vars.SHOP_URL }}
+          SHOP_URL: ${{ vars.SHOP_URL || 'https://payhip.com/selfcqree' }}
           PINTEREST_BOARD: ${{ vars.PINTEREST_BOARD }}
         run: python scripts/post.py publish
 
