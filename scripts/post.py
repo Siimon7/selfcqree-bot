@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from render import render
 from reel import render_reel
 from carousel import render_carousel
+from story import render_story
 import glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -87,10 +88,23 @@ def prepare_carousel(s, stamp):
     print("Pripravljen carousel:", item["title"])
 
 
+def prepare_story(s, stamp):
+    items = json.load(open(os.path.join(ROOT, "stories.json"), encoding="utf-8"))
+    i = s.get("story_next", 0) % len(items)
+    rel = f"images/{stamp}_story.jpg"
+    render_story(items[i], os.path.join(ROOT, rel), seed=i)
+    s["pending"] = {"index": None, "story": i, "image": rel, "kind": "story", "caption": items[i]["q"], "text": items[i]["q"]}
+    s["story_next"] = i + 1
+    save_state(s)
+    print("Pripravljen story:", items[i]["q"])
+
+
 def prepare(kind="post"):
     cleanup()
     s = load_state()
     now = datetime.datetime.now(datetime.timezone.utc)
+    if kind == "story":
+        return prepare_story(s, now.strftime("%Y-%m-%d_%H%M"))
     if kind == "carousel" or (kind == "post" and now.weekday() == 6):  # nedelja popoldne = carousel
         return prepare_carousel(s, now.strftime("%Y-%m-%d_%H%M"))
     posts = load_posts()
@@ -198,14 +212,16 @@ def publish_buffer(p, urls):
         assets = [{"image": {"url": u, "metadata": {"altText": p["text"][:200]}}} for u in urls]
     base = {"text": p["caption"], "schedulingType": "automatic", "mode": "customScheduled", "dueAt": due, "assets": assets}
 
-    res = _buffer(CREATE, {"input": dict(base, channelId=ig["id"], metadata={"instagram": {
-        "type": "reel" if kind == "reel" else "post", "shouldShareToFeed": True}})})["createPost"]
+    ig_meta = {"type": "story"} if kind == "story" else {"type": "reel" if kind == "reel" else "post", "shouldShareToFeed": True}
+    res = _buffer(CREATE, {"input": dict(base, channelId=ig["id"], metadata={"instagram": ig_meta})})["createPost"]
     if "post" not in res:
         fail("Buffer ni sprejel objave:", res.get("message"))
     print("Instagram @%s: objava ob %s" % (ig["name"], res["post"]["dueAt"]))
 
     for c in chans:
         svc = c["service"].lower()
+        if kind == "story":
+            continue
         if svc == "tiktok" and kind == "reel":
             inp = dict(base, channelId=c["id"], text=p["caption"][:2000])
         elif svc == "pinterest" and kind != "reel":
@@ -243,7 +259,7 @@ def publish():
         mid = publish_buffer(p, urls)
         s["history"].append({"index": p["index"], "kind": p.get("kind"), "buffer_id": mid,
                              "date": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes")})
-        if p.get("kind") != "carousel":
+        if p.get("kind") not in ("carousel", "story"):
             s["next"] = p["index"] + 1
         s["pending"] = None
         save_state(s)

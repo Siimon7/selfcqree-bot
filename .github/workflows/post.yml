@@ -5,10 +5,12 @@ on:
     # 2x na dan: 14:07 UTC (15:07 pri nas, 9:07 ZDA vzhod) in 23:07 UTC (0:07 pri nas, 18:07 ZDA vzhod)
     - cron: "7 14 * * *"
     - cron: "7 23 * * *"
+    # story z vprašanjem: 18:37 UTC (19:37 pri nas, popoldne v ZDA)
+    - cron: "37 18 * * *"
   workflow_dispatch:      # gumb "Run workflow" za ročni zagon
     inputs:
       kind:
-        description: "post, reel ali carousel"
+        description: "post, reel, carousel ali story"
         default: "post"
 
 permissions:
@@ -31,7 +33,7 @@ jobs:
 
       - name: Pripravi objavo (popoldne slika, zvečer Reel)
         env:
-          KIND: ${{ github.event.schedule == '7 23 * * *' && 'reel' || inputs.kind || 'post' }}
+          KIND: ${{ github.event.schedule == '7 23 * * *' && 'reel' || github.event.schedule == '37 18 * * *' && 'story' || inputs.kind || 'post' }}
           SHOP_URL: ${{ vars.SHOP_URL }}
         run: python scripts/post.py prepare "$KIND"
 
