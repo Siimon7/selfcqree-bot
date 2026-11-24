@@ -1,6 +1,13 @@
 {
   "next": 8,
-  "pending": null,
+  "pending": {
+    "index": null,
+    "story": 0,
+    "image": "images/2026-11-24_1753_story.jpg",
+    "kind": "story",
+    "caption": "how's your heart today, honestly?",
+    "text": "how's your heart today, honestly?"
+  },
   "history": [
     {
       "index": 0,
@@ -60,5 +67,6 @@
       "date": "2026-11-24T06:53+00:00"
     }
   ],
-  "carousel_next": 2
+  "carousel_next": 2,
+  "story_next": 1
 }
