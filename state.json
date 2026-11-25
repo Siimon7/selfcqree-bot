@@ -1,13 +1,6 @@
 {
   "next": 9,
-  "pending": {
-    "index": null,
-    "story": 1,
-    "image": "images/2026-11-25_0245_story.jpg",
-    "kind": "story",
-    "caption": "what's one thing you're overthinking right now?",
-    "text": "what's one thing you're overthinking right now?"
-  },
+  "pending": null,
   "history": [
     {
       "index": 0,
@@ -77,6 +70,12 @@
       "kind": "post",
       "buffer_id": "6b061dd0dccb7033eaf2d85c",
       "date": "2026-11-24T23:29+00:00"
+    },
+    {
+      "index": null,
+      "kind": "story",
+      "buffer_id": "6b064bc840e1d58d12f00ff2",
+      "date": "2026-11-25T02:45+00:00"
     }
   ],
   "carousel_next": 2,
