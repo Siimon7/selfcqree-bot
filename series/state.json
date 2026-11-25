@@ -1,5 +1,5 @@
 {
-  "next": 1,
+  "next": 2,
   "history": [
     {
       "index": 0,
@@ -9,6 +9,15 @@
         "youtube": "6b05c929bd6e90a3281b4acc"
       },
       "date": "2026-11-24T17:28+00:00"
+    },
+    {
+      "index": 1,
+      "title": "UNRANKED Ep. 2 – Bound",
+      "buffer": {
+        "instagram": "6b064515f0b405190ad20abd",
+        "youtube": "6b064516919291941332d5a2"
+      },
+      "date": "2026-11-25T02:16+00:00"
     }
   ]
 }
