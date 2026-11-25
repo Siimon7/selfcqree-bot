@@ -1,0 +1,598 @@
+{
+"total": 225.02417233560092,
+"shots": [
+{
+"i": 0,
+"t": 0.0,
+"dur": 3.78,
+"vol": 3.46,
+"cap": "In seven days, every pet in Brindle gets weighed on the *Pet Stone*."
+},
+{
+"i": 1,
+"t": 3.78,
+"dur": 2.746,
+"vol": 2.426,
+"cap": "Over one hundred power, you get a guild *contract*."
+},
+{
+"i": 2,
+"t": 6.527,
+"dur": 3.163,
+"vol": 2.843,
+"cap": "Under one hundred... the Guild takes your *pet*."
+},
+{
+"i": 3,
+"t": 9.689,
+"dur": 2.739,
+"vol": 2.419,
+"cap": "For my family, a contract means *food*."
+},
+{
+"i": 4,
+"t": 12.429,
+"dur": 2.595,
+"vol": 2.275,
+"cap": "Because right now, we have *three coins*."
+},
+{
+"i": 5,
+"t": 15.023,
+"dur": 2.365,
+"vol": 2.045,
+"cap": "And my pet's power... is *two*."
+},
+{
+"i": 6,
+"t": 17.388,
+"dur": 3.101,
+"vol": 2.781,
+"cap": "This is Bob. Bob is a *slime*."
+},
+{
+"i": 7,
+"t": 20.489,
+"dur": 2.234,
+"vol": 1.914,
+"cap": "The weakest pet in the whole *kingdom*."
+},
+{
+"i": 8,
+"t": 22.723,
+"dur": 3.313,
+"vol": 2.993,
+"cap": "Tess got a wolf. Ash. Level *nine*."
+},
+{
+"i": 9,
+"t": 26.036,
+"dur": 2.398,
+"vol": 2.078,
+"cap": "Rolf, the mayor's son, got a *drake*."
+},
+{
+"i": 10,
+"t": 28.434,
+"dur": 3.067,
+"vol": 2.547,
+"cap": "I got... *Bob*."
+},
+{
+"i": 11,
+"t": 31.502,
+"dur": 3.523,
+"vol": 3.203,
+"cap": "Rolf laughed so hard he fell off the *fence*."
+},
+{
+"i": 12,
+"t": 35.025,
+"dur": 1.401,
+"vol": 1.081,
+"cap": "Bob has one *problem*."
+},
+{
+"i": 13,
+"t": 36.426,
+"dur": 2.203,
+"vol": 1.883,
+"cap": "He eats. *Everything*."
+},
+{
+"i": 14,
+"t": 38.629,
+"dur": 2.96,
+"vol": 2.64,
+"cap": "My boots. My spoon. Half the *table*."
+},
+{
+"i": 15,
+"t": 41.589,
+"dur": 2.508,
+"vol": 2.088,
+"cap": "Mom said if he eats the door, he's *soup*."
+},
+{
+"i": 16,
+"t": 44.097,
+"dur": 2.278,
+"vol": 1.958,
+"cap": "So we trained. Every *day*."
+},
+{
+"i": 17,
+"t": 46.375,
+"dur": 1.725,
+"vol": 1.405,
+"cap": "Bob tried to bite a training *dummy*."
+},
+{
+"i": 18,
+"t": 48.1,
+"dur": 2.314,
+"vol": 1.994,
+"cap": "He bounced off. *Twice*."
+},
+{
+"i": 19,
+"t": 50.413,
+"dur": 1.784,
+"vol": 1.464,
+"cap": "Then he ate the *dummy*."
+},
+{
+"i": 20,
+"t": 52.198,
+"dur": 1.4,
+"vol": 0.914,
+"cap": "Power still: *two*."
+},
+{
+"i": 21,
+"t": 53.598,
+"dur": 2.528,
+"vol": 2.208,
+"cap": "But one night, I noticed something *weird*."
+},
+{
+"i": 22,
+"t": 56.126,
+"dur": 3.308,
+"vol": 2.988,
+"cap": "Bob swallowed an old rusty *sword*."
+},
+{
+"i": 23,
+"t": 59.434,
+"dur": 1.945,
+"vol": 1.525,
+"cap": "And the sword never came *out*."
+},
+{
+"i": 24,
+"t": 61.379,
+"dur": 3.26,
+"vol": 2.94,
+"cap": "For a second, his eyes looked... *metal*."
+},
+{
+"i": 25,
+"t": 64.639,
+"dur": 2.096,
+"vol": 1.776,
+"cap": "Then he burped. And it was *gone*."
+},
+{
+"i": 26,
+"t": 66.735,
+"dur": 2.799,
+"vol": 2.479,
+"cap": "Two days before the weigh-in, the Guild posted a *bounty*."
+},
+{
+"i": 27,
+"t": 69.535,
+"dur": 4.386,
+"vol": 4.066,
+"cap": "The Rat King. Level twelve. Living right under our *streets*."
+},
+{
+"i": 28,
+"t": 73.921,
+"dur": 2.994,
+"vol": 2.674,
+"cap": "Fifty gold. Enough to feed us for a *year*."
+},
+{
+"i": 29,
+"t": 76.915,
+"dur": 3.44,
+"vol": 3.12,
+"cap": "Rolf put a team together. His drake. Tess and *Ash*."
+},
+{
+"i": 30,
+"t": 80.355,
+"dur": 2.512,
+"vol": 2.192,
+"cap": "I asked to come. Rolf *grinned*."
+},
+{
+"i": 31,
+"t": 82.867,
+"dur": 2.384,
+"vol": 2.064,
+"cap": "Sure. Every hunt needs *bait*."
+},
+{
+"i": 32,
+"t": 85.251,
+"dur": 3.607,
+"vol": 3.287,
+"cap": "My sister gave me her lucky ribbon. Come back, she *said*."
+},
+{
+"i": 33,
+"t": 88.857,
+"dur": 3.035,
+"vol": 2.715,
+"cap": "The sewer smelled like a thousand dead *things*."
+},
+{
+"i": 34,
+"t": 91.892,
+"dur": 3.212,
+"vol": 2.892,
+"cap": "I carried the torches. And the bags. And the *food*."
+},
+{
+"i": 35,
+"t": 95.104,
+"dur": 2.606,
+"vol": 2.086,
+"cap": "Then the torches *flickered*."
+},
+{
+"i": 36,
+"t": 97.71,
+"dur": 2.755,
+"vol": 2.135,
+"cap": "Something big was *breathing*."
+},
+{
+"i": 37,
+"t": 100.465,
+"dur": 1.88,
+"vol": 1.56,
+"cap": "The Rat King came out of the *dark*."
+},
+{
+"i": 38,
+"t": 102.345,
+"dur": 2.045,
+"vol": 1.725,
+"cap": "The drake's fire did *nothing*."
+},
+{
+"i": 39,
+"t": 104.39,
+"dur": 3.119,
+"vol": 2.799,
+"cap": "Ash jumped in front of Tess. And got *thrown*."
+},
+{
+"i": 40,
+"t": 107.51,
+"dur": 1.941,
+"vol": 1.621,
+"cap": "Rolf screamed: *run*!"
+},
+{
+"i": 41,
+"t": 109.451,
+"dur": 3.111,
+"vol": 2.791,
+"cap": "Everyone ran. I tried to *follow*."
+},
+{
+"i": 42,
+"t": 112.561,
+"dur": 2.789,
+"vol": 2.469,
+"cap": "Rolf turned around... and *pushed* me."
+},
+{
+"i": 43,
+"t": 115.351,
+"dur": 2.52,
+"vol": 2.2,
+"cap": "Slow it down, bait, he *said*."
+},
+{
+"i": 44,
+"t": 117.871,
+"dur": 1.754,
+"vol": 1.434,
+"cap": "Then they locked the *gate*."
+},
+{
+"i": 45,
+"t": 119.625,
+"dur": 2.578,
+"vol": 2.258,
+"cap": "I heard Tess crying on the other *side*."
+},
+{
+"i": 46,
+"t": 122.203,
+"dur": 3.963,
+"vol": 3.443,
+"cap": "Just me. A slime. And a *boss*."
+},
+{
+"i": 47,
+"t": 126.166,
+"dur": 1.792,
+"vol": 1.372,
+"cap": "My torch started to *die*."
+},
+{
+"i": 48,
+"t": 127.958,
+"dur": 3.251,
+"vol": 2.931,
+"cap": "I pushed Bob behind me. Run, I *told* him."
+},
+{
+"i": 49,
+"t": 131.209,
+"dur": 2.704,
+"vol": 2.084,
+"cap": "If you get out... find my *sister*."
+},
+{
+"i": 50,
+"t": 133.913,
+"dur": 1.628,
+"vol": 1.308,
+"cap": "The Rat King *opened* its mouth."
+},
+{
+"i": 51,
+"t": 135.542,
+"dur": 1.615,
+"vol": 0.895,
+"cap": "I closed my *eyes*."
+},
+{
+"i": 52,
+"t": 137.157,
+"dur": 1.4,
+"vol": 0.614,
+"cap": "Nothing *happened*."
+},
+{
+"i": 53,
+"t": 138.557,
+"dur": 3.328,
+"vol": 3.008,
+"cap": "When I opened them, Bob was standing in *front* of me."
+},
+{
+"i": 54,
+"t": 141.886,
+"dur": 2.406,
+"vol": 2.086,
+"cap": "Bob didn't run. Bob never *runs*."
+},
+{
+"i": 55,
+"t": 144.291,
+"dur": 1.4,
+"vol": 0.526,
+"cap": "He *jumped*."
+},
+{
+"i": 56,
+"t": 145.691,
+"dur": 3.1,
+"vol": 2.78,
+"cap": "And swallowed the Rat King. *Whole*."
+},
+{
+"i": 57,
+"t": 148.791,
+"dur": 1.422,
+"vol": 0.602,
+"cap": "*Silence*."
+},
+{
+"i": 58,
+"t": 150.214,
+"dur": 3.407,
+"vol": 3.087,
+"cap": "Then a voice spoke. Not Bob's. The *System's*."
+},
+{
+"i": 59,
+"t": 153.621,
+"dur": 2.625,
+"vol": 2.305,
+"cap": "Hidden trait: *Boss Eater*."
+},
+{
+"i": 60,
+"t": 156.246,
+"dur": 2.544,
+"vol": 2.224,
+"cap": "Everything Bob ate... he *kept*."
+},
+{
+"i": 61,
+"t": 158.79,
+"dur": 2.465,
+"vol": 2.145,
+"cap": "He was just waiting for something *strong* enough."
+},
+{
+"i": 62,
+"t": 161.255,
+"dur": 4.875,
+"vol": 4.555,
+"cap": "Bob turned gray. His eyes went red. And he grew *teeth*."
+},
+{
+"i": 63,
+"t": 166.13,
+"dur": 2.465,
+"vol": 2.145,
+"cap": "Slime has absorbed: *Rat King*."
+},
+{
+"i": 64,
+"t": 168.595,
+"dur": 2.386,
+"vol": 2.066,
+"cap": "Level one... to level *twelve*."
+},
+{
+"i": 65,
+"t": 170.981,
+"dur": 1.815,
+"vol": 1.495,
+"cap": "And above his head, a counter *appeared*."
+},
+{
+"i": 66,
+"t": 172.796,
+"dur": 3.439,
+"vol": 3.119,
+"cap": "Bosses eaten: one... of one *hundred*."
+},
+{
+"i": 67,
+"t": 176.235,
+"dur": 1.4,
+"vol": 0.915,
+"cap": "Bob ate the gate *too*."
+},
+{
+"i": 68,
+"t": 177.635,
+"dur": 3.04,
+"vol": 2.72,
+"cap": "Up in the square, Rolf was telling everyone I *died*."
+},
+{
+"i": 69,
+"t": 180.675,
+"dur": 2.771,
+"vol": 2.451,
+"cap": "That I was brave. That he tried to save *me*."
+},
+{
+"i": 70,
+"t": 183.446,
+"dur": 1.4,
+"vol": 0.993,
+"cap": "Then the sewer lid *moved*."
+},
+{
+"i": 71,
+"t": 184.846,
+"dur": 3.434,
+"vol": 3.114,
+"cap": "I climbed out. Holding the Rat King's *crown*."
+},
+{
+"i": 72,
+"t": 188.28,
+"dur": 1.511,
+"vol": 0.791,
+"cap": "Nobody *spoke*."
+},
+{
+"i": 73,
+"t": 189.791,
+"dur": 1.887,
+"vol": 1.567,
+"cap": "Rolf's drake hid behind *him*."
+},
+{
+"i": 74,
+"t": 191.678,
+"dur": 2.302,
+"vol": 1.982,
+"cap": "The Guild paid me fifty *gold*."
+},
+{
+"i": 75,
+"t": 193.98,
+"dur": 4.026,
+"vol": 3.706,
+"cap": "Tess ran out and hugged Bob. Ash was going to *live*."
+},
+{
+"i": 76,
+"t": 198.005,
+"dur": 4.038,
+"vol": 3.718,
+"cap": "That night, Mom cooked meat. For the first time in a *year*."
+},
+{
+"i": 77,
+"t": 202.044,
+"dur": 1.851,
+"vol": 1.531,
+"cap": "My sister named it *Bob Day*."
+},
+{
+"i": 78,
+"t": 203.895,
+"dur": 3.65,
+"vol": 3.33,
+"cap": "But after everyone was asleep... the counter *glowed*."
+},
+{
+"i": 79,
+"t": 207.545,
+"dur": 1.577,
+"vol": 1.257,
+"cap": "A new line *appeared*."
+},
+{
+"i": 80,
+"t": 209.122,
+"dur": 3.444,
+"vol": 3.124,
+"cap": "Two hundred meters. That's the middle of the *village*."
+},
+{
+"i": 81,
+"t": 212.565,
+"dur": 3.642,
+"vol": 3.322,
+"cap": "I looked out the window. Someone on the roof was *watching* us."
+},
+{
+"i": 82,
+"t": 216.208,
+"dur": 1.883,
+"vol": 1.563,
+"cap": "A man in a red *cloak*."
+},
+{
+"i": 83,
+"t": 218.091,
+"dur": 4.334,
+"vol": 3.214,
+"cap": "And Bob's counter said: boss number two... *found*."
+},
+{
+"end": true,
+"t": 222.42417233560099,
+"dur": 2.6
+}
+]
+}
