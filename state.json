@@ -1,13 +1,6 @@
 {
   "next": 11,
-  "pending": {
-    "index": null,
-    "story": 2,
-    "image": "images/2026-11-26_0156_story.jpg",
-    "kind": "story",
-    "caption": "night owl or early bird?",
-    "text": "night owl or early bird?"
-  },
+  "pending": null,
   "history": [
     {
       "index": 0,
@@ -95,6 +88,12 @@
       "kind": "post",
       "buffer_id": "6b0769649f6dda31cca42717",
       "date": "2026-11-25T23:04+00:00"
+    },
+    {
+      "index": null,
+      "kind": "story",
+      "buffer_id": "6b0791cca791bea1b2447b0c",
+      "date": "2026-11-26T01:56+00:00"
     }
   ],
   "carousel_next": 2,
