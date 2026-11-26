@@ -1,5 +1,5 @@
 {
-  "next": 2,
+  "next": 3,
   "history": [
     {
       "index": 0,
@@ -18,6 +18,15 @@
         "youtube": "6b064516919291941332d5a2"
       },
       "date": "2026-11-25T02:16+00:00"
+    },
+    {
+      "index": 2,
+      "title": "UNRANKED Ep. 3 – The Mine",
+      "buffer": {
+        "instagram": "6b078f0f07071a606744ff64",
+        "youtube": "6b078f10a791bea1b2438e99"
+      },
+      "date": "2026-11-26T01:44+00:00"
     }
   ]
 }
