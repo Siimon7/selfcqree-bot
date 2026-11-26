@@ -1,12 +1,6 @@
 {
-  "next": 11,
-  "pending": {
-    "index": 11,
-    "image": "videos/2026-11-26_0500.mp4",
-    "kind": "reel",
-    "caption": "what's your version of this? comment below ⬇️\n.\n.\n#funnytweets #relatabletweets #genz #tweets #reminder #lifequotes #mood #relatablememes #quotes #selfcare",
-    "text": "do you ever miss a version of yourself you didn't even like that much at the time"
-  },
+  "next": 12,
+  "pending": null,
   "history": [
     {
       "index": 0,
@@ -100,6 +94,12 @@
       "kind": "story",
       "buffer_id": "6b0791cca791bea1b2447b0c",
       "date": "2026-11-26T01:56+00:00"
+    },
+    {
+      "index": 11,
+      "kind": "reel",
+      "buffer_id": "6b07bd16b96dd8d3518d9038",
+      "date": "2026-11-26T05:01+00:00"
     }
   ],
   "carousel_next": 2,
