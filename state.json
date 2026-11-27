@@ -1,13 +1,6 @@
 {
   "next": 13,
-  "pending": {
-    "index": null,
-    "story": 3,
-    "image": "images/2026-11-27_0154_story.jpg",
-    "kind": "story",
-    "caption": "what's your comfort show?",
-    "text": "what's your comfort show?"
-  },
+  "pending": null,
   "history": [
     {
       "index": 0,
@@ -113,6 +106,12 @@
       "kind": "post",
       "buffer_id": "6b08b93a8899c4e779f60421",
       "date": "2026-11-26T22:56+00:00"
+    },
+    {
+      "index": null,
+      "kind": "story",
+      "buffer_id": "6b08e2e49131f7416c652d5c",
+      "date": "2026-11-27T01:54+00:00"
     }
   ],
   "carousel_next": 2,
