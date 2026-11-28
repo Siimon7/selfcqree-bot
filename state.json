@@ -1,13 +1,6 @@
 {
   "next": 15,
-  "pending": {
-    "index": null,
-    "story": 4,
-    "image": "images/2026-11-28_0137_story.jpg",
-    "kind": "story",
-    "caption": "text back right away or leave it on read for 3 days?",
-    "text": "text back right away or leave it on read for 3 days?"
-  },
+  "pending": null,
   "history": [
     {
       "index": 0,
@@ -131,6 +124,12 @@
       "kind": "post",
       "buffer_id": "6b0a06b441454797eaccb571",
       "date": "2026-11-27T22:39+00:00"
+    },
+    {
+      "index": null,
+      "kind": "story",
+      "buffer_id": "6b0a3069eada83daa6b61b14",
+      "date": "2026-11-28T01:37+00:00"
     }
   ],
   "carousel_next": 2,
